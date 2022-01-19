@@ -1,7 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  root: {},
   post: {
     border: "1px solid black",
     borderRadius: "10px",

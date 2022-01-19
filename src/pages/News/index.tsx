@@ -1,5 +1,8 @@
 import { useEffect } from "react";
+import { Box, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+
+import Header from "../../components/Header";
 
 import { getNews } from "../../services/news";
 import { addNews, news } from "../../store/news";
@@ -10,7 +13,6 @@ const News = () => {
   const classes = useStyles();
 
   const data = useSelector(news);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,17 +23,18 @@ const News = () => {
         dispatch(addNews(response.data));
       }
     })();
-  });
+  }, []);
 
   return (
-    <div className={classes.root}>
+    <Box>
+      <Header active="/news" />
       {data.map((news) => (
-        <div className={classes.post}>
+        <Box className={classes.post}>
           <h3>{news.title}</h3>
-          <p>{news.body}</p>
-        </div>
+          <Typography>{news.body}</Typography>
+        </Box>
       ))}
-    </div>
+    </Box>
   );
 };
 

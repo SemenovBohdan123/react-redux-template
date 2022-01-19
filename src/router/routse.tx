@@ -1,8 +1,0 @@
-const route = {
-  home: "/",
-  login: "/login",
-  news: "/news",
-  profile: "/profile"
-}
-
-export default route
